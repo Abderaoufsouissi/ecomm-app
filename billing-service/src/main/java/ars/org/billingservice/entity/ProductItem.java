@@ -1,6 +1,7 @@
 package ars.org.billingservice.entity;
 
 import ars.org.billingservice.dto.Product;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,7 +15,7 @@ public class ProductItem {
     private String productId;
     private int quantity;
     private double unitPrice;
-    @ManyToOne
+    @ManyToOne @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Bill bill;
     @Transient
     private Product product;

@@ -14,7 +14,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import java.util.Collection;
@@ -43,13 +42,14 @@ public class BillingServiceApplication {
         return args -> {
 
             Collection<Customer> customers =customerRestClient.findAllCustomers().getContent();
-            Collection<Product> products =productRestClient.findAllProducts().getContent();
+            Collection<Product> products =productRestClient.getAllProducts().getContent();
             customers.forEach(customer -> {
                 Bill bill = Bill.builder()
                         .billingDate(new Date())
                         .customerId(customer.getId())
                         .build();
                 billRepository.save(bill);
+
                 products.forEach(product -> {
                     ProductItem productItem = ProductItem
                             .builder()
@@ -61,6 +61,8 @@ public class BillingServiceApplication {
                     productItemRepository.save(productItem);
                 });
             });
+
+
 
         };
     }

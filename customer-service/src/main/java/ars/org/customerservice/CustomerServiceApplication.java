@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 @SpringBootApplication
 public class CustomerServiceApplication {
-	Logger log = Logger.getLogger(CustomerServiceApplication.class.getName());
+	private static final Logger log = Logger.getLogger(CustomerServiceApplication.class.getName());
 
 	public static void main(String[] args) {
 		SpringApplication.run(CustomerServiceApplication.class, args);
@@ -23,11 +23,9 @@ public class CustomerServiceApplication {
 	CommandLineRunner run(CustomerRepository customerRepository) {
 
 		return args -> {
-			customerRepository.save(new Customer("Mohamed","Souissi","mohamed.souissi@gmail.com"));
-			customerRepository.save(new Customer("Abderaouf","Souissi","abderaouf.souissi@gmail.com"));
-			customerRepository.save(new Customer("Abdelmonem","Souissi","abdelmonem.souissi@gmail.com"));
-
-
+			customerRepository.save(Customer.builder().firstName("Mohamed").lastName("Souissi").email("mohamed.souissi@gmail.com").build());
+			customerRepository.save(Customer.builder().firstName("Abderaouf").lastName("Souissi").email("abderaouf.souissi@gmail.com").build());
+			customerRepository.save(Customer.builder().firstName("Abdelmonem").lastName("Souissi").email("abdelmonem.souissi@gmail.com").build());
 			customerRepository.findAll().forEach(customer -> log.info(customer.toString()));
 
 		};
