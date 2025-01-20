@@ -41,7 +41,7 @@ public class BillingServiceApplication {
     ) {
         return args -> {
 
-            Collection<Customer> customers =customerRestClient.findAllCustomers().getContent();
+            Collection<Customer> customers =customerRestClient.getAllCustomers().getContent();
             Collection<Product> products =productRestClient.getAllProducts().getContent();
             customers.forEach(customer -> {
                 Bill bill = Bill.builder()
