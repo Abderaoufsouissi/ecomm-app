@@ -1,6 +1,6 @@
 package ars.org.billingservice.feign;
 
-import ars.org.billingservice.dto.Customer;
+
 import ars.org.billingservice.dto.Product;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.hateoas.PagedModel;
