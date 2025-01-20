@@ -1,6 +1,7 @@
 package ars.org.inventoryservice.entity;
 
 
+
 import jakarta.persistence.Entity;
 
 import jakarta.persistence.Id;
