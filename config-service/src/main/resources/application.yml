@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: config-service
+  cloud:
+    discovery:
+      enabled: true
+    config:
+      server:
+        git:
+          uri: C:\Users\ARS\IdeaProjects\ecomm-app\config-repo
+server:
+  port: 9999
