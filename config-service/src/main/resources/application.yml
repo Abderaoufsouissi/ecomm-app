@@ -7,6 +7,6 @@ spring:
     config:
       server:
         git:
-          uri: C:\Users\ARS\IdeaProjects\ecomm-app\config-repo
+          uri: https://github.com/Abderaoufsouissi/config-repo
 server:
   port: 9999
