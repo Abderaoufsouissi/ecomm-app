@@ -5,9 +5,7 @@ spring:
     import: optional:configserver:http://localhost:9999
   application:
     name: inventory-service
-  cloud:
-    config:
-      enabled: true
+
 
 
 
