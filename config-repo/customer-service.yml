@@ -13,8 +13,6 @@ spring:
   cloud:
     discovery:
       enabled: true
-    config:
-      enabled: true
 
 eureka:
   instance:
