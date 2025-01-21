@@ -1,3 +1,4 @@
+
 spring:
   application:
     name: customer-service
@@ -11,14 +12,14 @@ spring:
     jdbc:
       dialect: h2
   jpa:
-    hibernate:
-      ddl-auto: update
     show-sql: true
   cloud:
     discovery:
       enabled: true
     config:
-      enabled: false
+      enabled: true
+  config:
+    import: optional:configserver:http://localhost:9999
 eureka:
   instance:
     prefer-ip-address: true
